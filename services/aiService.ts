@@ -105,7 +105,8 @@ export const generateChatCompletion = async (
              throw new Error("Detected OpenAI-compatible URL, skipping SDK.");
         }
 
-        const ai = new GoogleGenAI({ apiKey, baseUrl });
+        // @ts-ignore - Handle baseUrl for custom proxies even if types don't support it
+        const ai = new GoogleGenAI({ apiKey, baseUrl } as any);
         
         const contents = conversationMessages.map(msg => ({
             role: msg.role === 'user' ? 'user' : 'model',
