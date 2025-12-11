@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, useRef, Dispatch, SetStateAction, useMemo } from 'react';
 import { Character, Message, AppSettings, Moment, Scenario, MemoryCard, StyleConfig } from '../../types';
 import { generateChatCompletion, interpolatePrompt } from '../../services/aiService';
@@ -1503,11 +1501,11 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ character, settings, onBa
                      </div>
                      <span className="text-[10px] font-bold text-stone-600">设置</span>
                  </button>
-                 <button onClick={() => { if (viewMode === 'offline') exitOfflineMode(); else setViewMode('offline'); }} className="flex flex-col items-center gap-2 group">
-                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition border border-stone-700 group-active:scale-95 ${viewMode === 'offline' ? 'bg-white text-stone-900 border-stone-900' : 'bg-stone-900 text-white hover:bg-red-900'}`}>
+                 <button onClick={() => setViewMode('offline')} className="flex flex-col items-center gap-2 group">
+                     <div className="w-14 h-14 bg-stone-900 text-white rounded-2xl flex items-center justify-center shadow-lg transition border border-stone-700 group-active:scale-95 hover:bg-red-900">
                          <i className="fas fa-street-view text-xl"></i>
                      </div>
-                     <span className="text-[10px] font-bold text-stone-600">{viewMode === 'offline' ? '退出线下' : '线下模式'}</span>
+                     <span className="text-[10px] font-bold text-stone-600">线下模式</span>
                  </button>
                  <button onClick={() => setViewMode('theater_list')} className="flex flex-col items-center gap-2 group">
                      <div className="w-14 h-14 bg-stone-900 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-stone-200 group-active:scale-95 transition border border-stone-700 hover:bg-red-900">
